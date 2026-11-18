@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The online preview should not show up in search engines. -->
+  <meta name="robots" content="noindex">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Map reading study</title>
+  <!-- Map reading study, Monash project 54284.
+       The study opens straight from the folder (double-click this file), with no server and no network.
+       Add ?researcher=1 for the researcher bar (participant code, jump to any screen).
+       Add ?screen=<id> to open one screen directly, used for the screenshots. -->
+  <script>
+    // Load the CSS and JavaScript with a new query value each time, so a normal refresh
+    // never shows a version the browser kept from before.
+    var STUDY_ASSET_VERSION = Date.now();
+    document.write('<link rel="stylesheet" href="study.css?v=' + STUDY_ASSET_VERSION + '">');
+  </script>
+</head>
+<body>
+  <!-- Shown by study.js only when the page is opened from a web address. -->
+  <div id="preview" hidden>Preview for the supervisors of project 54284. This page is not used with participants.
+    Nothing you do here is sent anywhere.</div>
+
+  <!-- Researcher bar, shown with ?researcher=1 -->
+  <div id="researcher" hidden>
+    <label>Participant code <input id="pcode" size="8" autocomplete="off"></label>
+    <label>Go to <select id="jump"></select></label>
+    <button type="button" id="hideBar">Hide this bar</button>
+  </div>
+
+  <!-- Top line: part name, study name and a thin progress rule -->
+  <header id="top">
+    <div id="partName"></div>
+    <div class="study-id">Map reading study | Project 54284</div>
+    <div id="progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="screen">
+    <!-- Left: the map, drawn in four layers, and its keys -->
+    <section id="mapCol" hidden>
+      <div id="mapTitle"></div>
+      <div id="mapWrap">
+        <svg id="map" viewBox="0 0 940 620" role="img" aria-label="Map of Australia">
+          <g id="base"></g>     <!-- the map as the app drew it -->
+          <g id="hilite"></g>   <!-- Way 1 and Way 2 highlights -->
+          <g id="marks"></g>    <!-- rings and letters -->
+          <g id="ink"></g>      <!-- lines and clicks of the participant -->
+          <rect id="catch" x="0" y="0" width="940" height="620" fill="transparent"></rect>
+        </svg>
+        <div id="tip" hidden></div>
+      </div>
+      <div id="keys"></div>
+    </section>
+
+    <!-- Right: the question, drawing tools, the Way 2 list and the Next button -->
+    <section id="qCol">
+      <div id="qBody"></div>
+      <div id="drawTools" hidden>
+        <button type="button" id="undo">Undo last line</button>
+        <button type="button" id="clear">Clear</button>
+      </div>
+      <div id="lensList" hidden></div>
+      <nav id="navBar">
+        <button type="button" id="next">Next</button>
+      </nav>
+    </section>
+  </main>
+
+  <script>
+    // The map data first, then the page logic, both with the same query value as the CSS.
+    document.write('<script src="data/study_data.js?v=' + STUDY_ASSET_VERSION + '"><\/script>');
+    document.write('<script src="study.js?v=' + STUDY_ASSET_VERSION + '"><\/script>');
+  </script>
+</body>
+</html>
